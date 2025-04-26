@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TEDxVBIT - Team</title>
+    
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        
+        /* Navigation */
+        #topBar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        #logo img {
+            height: 50px;
+            cursor: pointer;
+        }
+        
+        #hamburger {
+            cursor: pointer;
+        }
+        
+        /* Team Page */
+        #teamPage {
+            padding: 100px 20px 60px;
+            margin-top: 30px;
+            background-image: url('./Resources/about-illustration.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .pageHeading {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #e62b1e;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .pageHeading::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #e62b1e;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .teamSubCategories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+        
+        .teamTab {
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: relative;
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+        
+        .activeTab {
+            color: white;
+        }
+        
+        .activeTab::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #e62b1e;
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .inactiveTab:hover {
+            color: #ddd;
+        }
+        
+        /* Team Grid */
+        .teamGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        
+        .teamMember {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .teamMember:hover {
+            transform: translateY(-10px);
+        }
+        
+        .memberPhoto {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .memberInfo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .memberName {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #e62b1e;
+        }
+        
+        .memberRole {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        /* Footer */
+        #footer {
+            background-color: #000;
+            padding: 40px 20px;
+            text-align: left;
+            border-top: 1px solid #222;
+        }
+        
+        .footerLogo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .tedxLine {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .teamGrid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 20px;
+            }
+            
+            .teamMember {
+                width: 160px;
+                height: 220px;
+            }
+            
+            .memberPhoto {
+                height: 160px;
+            }
+            
+            .pageHeading {
+                font-size: 2.2rem;
+            }
+            
+            .teamTab {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .teamGrid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+            
+            .teamMember {
+                width: 140px;
+                height: 200px;
+            }
+            
+            .memberPhoto {
+                height: 140px;
+            }
+            
+            .pageHeading {
+                font-size: 1.8rem;
+            }
+            
+            .teamSubCategories {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .teamTab {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <img src="Resources/tedxlogo.png" alt="Logo" class="logo">
+        <div class="right-section">
+          <button class="get-pass-btn">Get Pass</button>
+        
+        <!-- Menu Icon (SVG) -->
+        <div id="menuIcon" onclick="toggleMenu()" class="menu-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="menu-icon-svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>
+        </div>
+      </nav>
+      
+    
+      <!-- Fullscreen Menu -->
+      <div class="fullscreen-menu" id="fullscreenMenu">
+        <a href="./index.html">Home</a><hr>
+        <a href="./index.html#about">About</a><hr>
+        <a href="./index.html#speakers">Speakers</a><hr>
+        <a href="./past_speaker.html">Past Speakers</a><hr>
+        <a href="./index.html#sponsors">Sponsors</a><hr>
+        <a href="#">Contact</a><hr>
+        <a href="./team.html">Team</a>
+      </div>
+
+    <!-- Team Page -->
+    <div id="teamPage" class="page">
+        <div class="pageContainer">
+            <div class="pageHeading" style="color: white;">Our Team</div>
+            <div class="teamSubCategories">
+                <div id="teamLeadsButton" class="teamTab activeTab" onclick="showTeamLeads()">Core Committee</div>
+                <div id="associatesButton" class="teamTab inactiveTab" onclick="showAssociates()">Organizing Committee</div>
+            </div>
+            
+            <!-- Team Leads Section -->
+            <div class="pageContent" id="teamLeadsContainer" style="display:grid;">
+                <div class="teamGrid">
+                    <!-- Team Lead 1 -->
+                    <div class="teamMember">
+                        <a href="linkedin.com/in/tharunreddy0408 " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Tharun.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Tharun</div>
+                            <div class="memberRole">Licensee</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Lead 2 -->
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/ishir-srivats-8a1a771a0 
+                        " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Ishir.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Ishir Srivats</div>
+                            <div class="memberRole">Co-Licensee</div>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/pratham-kamidri?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Pratham.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Pratham</div>
+                            <div class="memberRole">Admin & Marketing Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href=" https://www.linkedin.com/in/bindhu-sree" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Bindhu.jpeg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Bindhu Sree</div>
+                            <div class="memberRole">Design Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/laasyakshara-podishetty" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Laasya.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Laasyakshara</div>
+                            <div class="memberRole">Digital Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/pranita-abbireddy/ " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Pranita.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Pranita</div>
+                            <div class="memberRole">Documentation Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Praneeth.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Praneeth</div>
+                            <div class="memberRole">Hospitality Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/rithika-adike-589371228" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Rithika.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Rithika</div>
+                            <div class="memberRole">Marketing Co-Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/nandini-gaddam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app 
+                        " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Nandini.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Nandini</div>
+                            <div class="memberRole">SMP Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/praneeth-chetty/" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Praneeth_Chetty.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Praneeth</div>
+                            <div class="memberRole">Speaker Research Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="www.linkedin.com/in/rohithtappa" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Tappa Rohith .jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Rohith</div>
+                            <div class="memberRole">Sponsorship Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Vivek.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Vivek</div>
+                            <div class="memberRole">Production Lead</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Shourya.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Shourya</div>
+                            <div class="memberRole">Production Co-Lead</div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <!-- Associates Section -->
+            <div class="pageContent" id="associatesContainer" style="display:none;">
+                <div class="teamGrid">
+                    <!-- Associate 1 -->
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/poojitha-netha-2b383727a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Poojitha.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">J. Poojitha</div>
+                            <div class="memberRole">Design</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Associate 2 -->
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/kasi-abhilash-929a3835a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Abhilash.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">K. Abhilash</div>
+                            <div class="memberRole">Design</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/prashasth-kamidri-794a63288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Prashasth.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">K. Prashasth</div>
+                            <div class="memberRole">Design</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/charan-tej-valluru-2a172a2b7" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Charan.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Charan Tej</div>
+                            <div class="memberRole">Documentation</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/thanmayeebolloju?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Thanmayee.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Thanmayee</div>
+                            <div class="memberRole">Documentation</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/p-aditya-1ab01534b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Aditya P.JPG" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">P. Aditya</div>
+                            <div class="memberRole">Hospitality</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/yuva-raj-69a2642a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Yuva Raj.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Yuvaraj</div>
+                            <div class="memberRole">Hospitality</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/keerthi-gatla-3031b1286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/keerthi.jpeg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">G. Keerthi</div>
+                            <div class="memberRole">Marketing</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/shreshta-a-956061352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Shreshta.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Shreshta</div>
+                            <div class="memberRole">Marketing</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/shaun-felix-a40a452a4/" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Shaun.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Shaun</div>
+                            <div class="memberRole">Marketing</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href=" https://www.linkedin.com/in/bhargava-nandan-374a58291" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Bhargav.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Bhargava</div>
+                            <div class="memberRole">SMP</div>
+                        </div>
+                    </div>
+
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/sunaina-velishala-23b30135b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Sunaina.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">V. Sunaina</div>
+                            <div class="memberRole">SMP</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://in.linkedin.com/in/soma-sathvika-65a2932a4 
+                        " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Sathvika Shetty .jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Sathvika</div>
+                            <div class="memberRole">SMP</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/roshan-jaisimha-bonthu-399b36228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Roshan.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Roshan</div>
+                            <div class="memberRole">Speraker Research</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/jonathan-raj-577547308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Jonathan.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Jonathan</div>
+                            <div class="memberRole">Speraker Research</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/bharati-nallacheruvu-028a992a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app 
+                        " target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Bharathi.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Bharati</div>
+                            <div class="memberRole">Speraker Research</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/sai-vishal-8b374a259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/vishal.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Vishal</div>
+                            <div class="memberRole">Sponsorship</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/harish-ksheersagar-012559277?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BDtLBLO9pQRuvpxAz9C6pfA%3D%3D" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Harish Ksheersagar.jpeg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Harish</div>
+                            <div class="memberRole">Sponsorship</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/sandeep-swaraj-sonkoju-919266355" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Sandeep.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Sandeep</div>
+                            <div class="memberRole">Production</div>
+                        </div>
+                    </div>
+                    <div class="teamMember">
+                        <a href="https://www.linkedin.com/in/sharath-chandra-reddy-8898902a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><img src="./Resources/Team/Sharath.jpg" alt="Ishir" class="memberPhoto"></a>
+                        <div class="memberInfo">
+                            <div class="memberName">Sharath </div>
+                            <div class="memberRole">Production</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section id="footer" class="page">
+        <div class="pageContainer">
+          <div class="footer-content">
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+              <h3 class="footer-heading">Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#about">About</a></li>
+                <li><a href="./index.html#speakers">Speakers</a></li>
+                <li><a href="./past_speaker.html">Past Speakers</a></li>
+                <li><a href="./index.html#sponsors">Sponsors</a></li>
+                <li><a href="./index.html#contact">Contact</a></li>
+                <li><a href="./team.html">Team</a></li>
+              </ul>
+            </div>
+      
+            <!-- Contact Column -->
+            <div class="footer-column">
+              <h3 class="footer-heading">Stay Connected</h3>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <img src="./Resources/svg_footer/gps.svg" alt="Location" class="contact-icon">
+                  <span>VBIT Campus, Aushapur, Ghatkesar, near HPCL, Hyderabad, Telangana 501301</span>
+                </div>
+                <div class="contact-item">
+                  <img src="./Resources/svg_footer/mail.svg" alt="Email" class="contact-icon">
+                  <a href="mailto:tedxvbit@gmail.com">tedxvbit@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <img src="./Resources/svg_footer/ig.svg" alt="Email" class="contact-icon">
+                  <a href="https://www.instagram.com/tedxvbit/">@tedxvbit</a>
+                </div>
+                <div class="contact-item">
+                  <img src="./Resources/svg_footer/linkedin.svg" alt="Email" class="contact-icon">
+                  <a href="https://www.linkedin.com/company/tedxvbit/">linkedin/tedxvbit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Footer Bottom -->
+          <div class="footer-bottom">
+            <hr class="footer-divider">
+            <div class="footer-branding">
+              <img src="./Resources/tedxlogo.png" alt="TEDxVBIT" class="footer-logo">
+              <p class="tedx-disclaimer">This independent TEDx event is operated under license from TED.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script>
+        // Toggle between Team Leads and Associates
+        function showTeamLeads() {
+            document.getElementById('teamLeadsContainer').style.display = 'block';
+            document.getElementById('associatesContainer').style.display = 'none';
+            document.getElementById('teamLeadsButton').className = 'teamTab activeTab';
+            document.getElementById('associatesButton').className = 'teamTab inactiveTab';
+        }
+        
+        function showAssociates() {
+            document.getElementById('teamLeadsContainer').style.display = 'none';
+            document.getElementById('associatesContainer').style.display = 'block';
+            document.getElementById('teamLeadsButton').className = 'teamTab inactiveTab';
+            document.getElementById('associatesButton').className = 'teamTab activeTab';
+        }
+        
+        // Mobile navigation functions
+        function toggleMenu() {
+        const menuIcon = document.getElementById('menuIcon');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+
+        menuIcon.classList.toggle('active');
+        fullscreenMenu.classList.toggle('show');
+    }
+    </script>
+</body>
+</html>
