@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TEDxVBIT</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&family=Stardos+Stencil&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+ 
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="Resources/tedxlogo.png" alt="Logo" class="logo">
+    <div class="right-section">
+      <button class="get-pass-btn" onclick="window.open('https://bit.ly/TEDxVBITS6registrations', '_blank')">Register Here</button>
+    
+    
+    <!-- Menu Icon (SVG) -->
+    <div id="menuIcon" onclick="toggleMenu()" class="menu-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="menu-icon-svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+      </svg>
+    </div>
+  </nav>
+  
+
+  <!-- Fullscreen Menu -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <a href="./index.html">Home</a><hr>
+    <a href="./index.html#about">About</a><hr>
+    <a href="./index.html#speakers">Speakers</a><hr>
+    <a href="./past_speaker.html">Past Speakers</a><hr>
+    <a href="./index.html#sponsors">Sponsors</a><hr>
+    <a href="#contact-section">Contact</a><hr>
+    <a href="./team.html">Team</a>
+  </div>
+
+  <!-- Background container -->
+  <section class="hero-section">
+    <div id="vanta-bg"></div>
+    <div id="vanta-overlay"></div>
+
+    <!-- Theme text -->
+    <div class="theme">
+      <div class="frames">FRAMES</div>
+      <div class="and" style="color: red;">AND</div>
+      <div class="fragments">FRAGMENTS</div>
+      </div>
+    <div class="event-date">
+      <p>29<sup>th</sup> April 2025 - VBIT, Ghatkesar</p>
+    </div>
+    </section>
+
+    <section class="journey-section">
+      <div class="journey-content">
+        <h2>Our Journey Through Seasons</h2>    
+        <p>TEDxVBIT began as a spark, an idea to bring powerful stories to our campus stage. Over the years, it has grown into a space where ideas are heard, challenges are questioned and voices truly matter. Whether on stage or behind a screen, we've carried the spirit through it all. Season after season, we are not just hosting events, we are building a legacy of thought, expression and change.</p>
+      </div>
+    
+      <div class="journey-container">
+        <!-- Video Section - YouTube Embed -->
+        <div class="journey-video">
+          <div class="video-container">
+            <iframe 
+              width="100%" 
+              height="400"
+              src="https://youtu.be/kn3EGwacDfU" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        
+        <!-- Content Section -->
+      </div>
+    </section>
+  
+  
+  
+  <!-- About Section -->
+<section id="about" class="page">
+  <div class="pageContainer">
+    <div class="about-content-wrapper">
+      <div class="about-text-content">
+        <img src="./Resources/ted.png" style="height: auto; width: 10%">
+        <div class="pageContent">
+          <p>TED (Technology, Entertainment, and Design) is a global conference series that serves as a hub for brilliant minds and influential thought leaders from diverse fields. It provides a unique platform for these experts to come together and share their groundbreaking ideas, vast knowledge, and captivating experiences. TED Talks are short, powerful speeches on a variety of topics that aim to spread ideas and inspire people to take action in their communities. TED has become a popular platform for sharing innovative ideas, and its talks have been viewed by millions of people worldwide.
+          </p>
+        </div>
+        
+        
+        <div class="pageContent">
+          <img src="./Resources/tedx.png" style="height: auto; width: 12%;">
+          <p>TEDx events are independently organized events that follow the same format and spirit as TED events. They are organized by local communities and individuals passionate about sharing ideas and bringing people together in
+            their communities. TEDx events feature a combination of live speakers and TED Talk videos, and they cover a wide range of topics that are relevant to their local communities. TEDx events are licensed by TED, which provides
+            guidelines and support to ensure that they meet the standards of quality and integrity that TED is known for.</p>
+        </div>
+
+        
+        <div class="pageContent">
+          <img src="./Resources/logo_black.png" style="height: 50%; width: 20%;">
+          <p>TEDxVBIT is an independently organized TEDx event held annually at Vignana Bharathi Institute of Technology (VBIT), Ghatkesar, Hyderabad. The aim of TEDxVBIT is to inspire, educate, and empower individuals to take action and make a positive impact in their communities. The event brings together a diverse group of speakers and performers from various fields, including technology, entertainment, design, science, and art, who share their innovative ideas and experiences with the audience. Since its inception, TEDxVBIT has been among the premier TEDx experiences in Hyderabad, attracting a large and enthusiastic audience every year.</p>
+        </div>
+      </div>
+      <div class="about-logo">
+        <img src="./Resources/x.png" alt="TEDxVBIT Logo" class="logo-image">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Speakers Section -->
+<section id="speakers" class="page">
+  <div class="pageContainer">
+    <h2 class="section-title-speaker" style="text-align: center;">Season 6 Speaker Panel</h2>
+    <div class="cardsGrid">
+      <!-- Speaker 1 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Aanchal_Bajwa.jpeg.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Aanchal Bajwa</div>
+          <div class="speakerDescription">TV presenter</div>
+        </div>
+      </div>
+
+      <!-- Speaker 2 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Aditya_Tiwari.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Aditya Tiwari</div>
+          <div class="speakerDescription">Poet and LGBTQ Activist</div>
+        </div>
+      </div>
+
+      <!-- Speaker 3 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Kalpika_Ganesh.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Kalpika Ganesh</div>
+          <div class="speakerDescription">Actress</div>
+        </div>
+      </div>
+
+      <!-- Speaker 4 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Prema_Malini.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Prema Malini</div>
+          <div class="speakerDescription">Journalist</div>
+        </div>
+      </div>
+
+      <!-- Speaker 5 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Sahil_Sachdeva.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Sahil Sachdeva</div>
+          <div class="speakerDescription">Entrepreneur</div>
+        </div>
+      </div>
+
+      <!-- Speaker 6 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Savitha_Sastry.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Savitha Sastry</div>
+          <div class="speakerDescription">Classical Dance Artist</div>
+        </div>
+      </div>
+
+      <!-- Speaker 7 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Sohini_Singh.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Sohini Singh</div>
+          <div class="speakerDescription">Filmmaker</div>
+        </div>
+      </div>
+
+      <!-- Speaker 8 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Aditi Bhavaraju.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Aditi Bhavaraju</div>
+          <div class="speakerDescription">Playback Singer</div>
+        </div>
+      </div>
+
+      <!-- Speaker 9 -->
+      <div class="card">
+        <img src="./Resources/Speakers/Swathi.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Swathi Rayabarapu</div>
+          <div class="speakerDescription">Radio Jockey</div>
+        </div>
+      </div>
+      <!--Speaker 10-->
+      <div class="card">
+        <img src="./Resources/Speakers/Janaki Pulaparthi.jpg" alt="Pablo Agular">
+        <div class="overlay">
+          <div class="speakerName">Janaki Pulaparthi</div>
+          <div class="speakerDescription">Entrepreneur</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Sponsors Section -->
+
+<!-- Sponsors Section -->
+<section id="sponsors" class="page">
+  <div class="pageContainer">
+    <h2 class="section-title">Our Sponsors</h2>
+    <div class="sponsors-grid">
+      <!-- Sponsor 1 -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo">
+          <img src="./Resources/Sponsors/Paint_world.jpg" alt="WORLD OF NEON">
+        </div>
+        <div class="sponsor-name">WORLD OF NEON</div>
+      </div>
+      
+      <!-- Sponsor 2 -->
+      <div class="sponsor-card">
+        <div class="sponsor-logo">
+          <img src="./Resources/Sponsors/Big_owl.jpg" alt="HC GLOBAL">
+        </div>
+        <div class="sponsor-name">BIG OWL CAFE</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!----Contact Us-->
+<section class="contact-section" style="background-color: black; padding: 30px 0;">
+  <div class="container">
+    <div class="venue-grid">
+      <!-- Left Column - Venue Info -->
+      <div class="venue-info">
+        <h4 class="section-title" style="color: white;">Venue and Date</h4>
+        <p class="venue-address" style="color: white;">
+          Aushapur, Ghatkesar, near HPCL, Hyderabad, Telangana, India - 501301
+        </p>
+        <p class="event-date" style="color: white;">
+          <strong>29<sup>th</sup> April, 2025</strong>
+        </p>
+      </div>
+      
+      <!-- Middle Column - Map -->
+      <div class="map-container">
+        <div class="map-frame">
+          <iframe src="https://maps.google.com/maps?width=250&amp;height=160&amp;hl=en&amp;q=Vignana%20Bharathi%20Institute%20of%20Technology%20&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+                  width="250" height="160" style="border:1px solid #ccc;" allowfullscreen=""
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      
+      <!-- Right Column - Get Pass -->
+      <div class="ticket-section">
+        <div class="info">
+          <h4 class="section-title" style="color: white;">Contact Us</h4>
+          <p style="color: white;"><strong>Pratham:</strong> +91 70754 29072<br>
+          <span class="role">Marketing Lead</span></p>
+          
+          <p style="color: white;"><strong>Ishir:</strong> +91 80742 13069<br>
+          <span class="role">Co-Licensee</span></p>
+          
+          <p style="color: white;"><strong>Tharun:</strong> +91 79958 60754<br>
+          <span class="role">Licensee</span></p>
+          <button class="get-pass-btn" onclick="window.open('https://bit.ly/TEDxVBITS6registrations', '_blank')">Register Here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Footer-->
+<!-- Footer Section -->
+<section id="footer" class="page">
+  <div class="pageContainer">
+    <div class="footer-content">
+      <!-- Quick Links Column -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#speakersPage">Speakers</a></li>
+          <li><a href="./index.html#speakersPage">Past Speakers</a></li>
+          <li><a href="./index.html#sponsorPage">Sponsors</a></li>
+          <li><a href="./index.html#contactPage">Contact</a></li>
+          <li><a href="./team.html">Team</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Stay Connected</h3>
+        <div class="contact-info">
+          <div class="contact-item">
+            <img src="./Resources/svg_footer/gps.svg" alt="Location" class="contact-icon">
+            <span>VBIT Campus, Aushapur, Ghatkesar, near HPCL, Hyderabad, Telangana 501301</span>
+          </div>
+          <div class="contact-item">
+            <img src="./Resources/svg_footer/mail.svg" alt="Email" class="contact-icon">
+            <a href="mailto:tedxvbit@gmail.com">tedxvbit@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <img src="./Resources/svg_footer/ig.svg" alt="Email" class="contact-icon">
+            <a href="https://www.instagram.com/tedxvbit/">@tedxvbit</a>
+          </div>
+          <div class="contact-item">
+            <img src="./Resources/svg_footer/linkedin.svg" alt="Email" class="contact-icon">
+            <a href="https://www.linkedin.com/company/tedxvbit/">linkedin/tedxvbit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <hr class="footer-divider">
+      <div class="footer-branding">
+        <img src="./Resources/tedxlogo.png" alt="TEDxVBIT" class="footer-logo">
+        <p class="tedx-disclaimer">This independent TEDx event is operated under license from TED.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
